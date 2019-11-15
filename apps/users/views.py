@@ -20,8 +20,8 @@ class LoginView(View):
 		user = auth.authenticate(username=username, password=password)
 		if user:
 			auth.login(request, user)
-			request.session['Username'] = username
-			return HttpResponseRedirect('index.html')
+			request.session['user'] = username
+			return HttpResponseRedirect('/index.html/')
 		else:
 			return render(request, 'users/login.html')
 

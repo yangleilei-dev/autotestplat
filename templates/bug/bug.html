@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load bootstrap4 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <meta charset="UTF-8">
+        <title>自动化测试平台-产品</title>
+    </head>
+    <body role="document">
+        <!-- 导航栏 -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <div class="container">
+                <a href="#" class="navbar-brand">&nbsp;</a>
+                <ul class="nav justify-content-conter"></ul>
+                <ul class="nav justify-content-end">
+                    <li class="nav-link"><a href="#" style="color: white">{{ user }}</a></li>
+                    <li class="nav-link"><a href="{% url 'users:logout' %}" style="color: white">退出</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- 产品列表 -->
+        <div class="row" style="padding-top: 20px">
+            <div class="col-md-11">
+                <table class="table table-striped">
+                    <thead>
+                        <tr><td>&nbsp;</td></tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>产品</th>
+                            <th>bug名称</th>
+                            <th>bug详情</th>
+                            <th>解决状态</th>
+                            <th>严重程度</th>
+                            <th>创建人</th>
+                            <th>分配给</th>
+                            <th>创建时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bug in bug_list %}
+                            <tr>
+                                <td>{{ bug.id }}</td>
+                                <td>{{ bug.product.product_name }}</td>
+                                <td>{{ bug.bug_name }}</td>
+                                <td>{{ bug.bug_detail }}</td>
+                                <td>{{ bug.bug_status }}</td>
+                                <td>{{ bug.bug_level }}</td>
+                                <td>{{ bug.bug_creater }}</td>
+                                <td>{{ bug.bug_assign }}</td>
+                                <td>{{ bug.create_time }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

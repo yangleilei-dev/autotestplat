@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.users.apps.UsersConfig',
+    'apps.product.apps.ProductConfig',
+    'apps.bug.apps.BugConfig',
     'crispy_forms',
     'xadmin',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

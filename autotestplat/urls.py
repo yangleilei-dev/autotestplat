@@ -21,4 +21,6 @@ import xadmin
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('', include('apps.users.urls')),
+    path('', include('apps.product.urls')),
+    path('', include('apps.bug.urls')),
 ]
